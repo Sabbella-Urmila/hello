@@ -1,0 +1,90 @@
+package javapraticeproject;
+public class Geometric {
+	
+	    public void displayArea() {
+	        System.out.println("Area: ");
+	    }
+	}
+package javapraticeproject;
+public class Circle extends Geometric {
+	    private double radius;
+
+	    public Circle(double radius) {
+	        this.radius = radius;
+	    }
+
+	    @Override
+	    public void displayArea() {
+	        double area = Math.PI * radius * radius;
+	        System.out.println("Area of Circle: " + area);
+	    }
+	}
+package javapraticeproject;
+public class Rectangle extends Geometric {
+		
+		  private int length;
+		    private int width;
+
+		    public Rectangle(int length, int width) {
+		        this.length = length;
+		        this.width = width;
+		    }
+
+		    @Override
+		    public void displayArea() {
+		    	 System.out.println("Area of the Rectangle: " + calculateArea());
+		    }
+
+		    public double calculateArea() {
+		        return length * width;
+		    }
+
+	}
+package javapraticeproject;
+public class Square extends Geometric {
+		
+		  private int length;
+		  
+
+		    public Square(int length) {
+		        this.length = length;
+		      
+		    }
+
+		    @Override
+		    public void displayArea() {
+		        System.out.println("Area of the Square: " + calculateArea());
+		    }
+
+		    public double calculateArea() {
+		        return length * length;
+		    }
+
+	}
+package javapraticeproject;
+import java.util.ArrayList;
+   public class Main {
+
+	public static void main(String[] args) {
+		
+		ArrayList<Geometric> shapes = new ArrayList<>();
+				
+		 try {
+	           
+	            shapes.add(new Rectangle(4, 6));
+	           shapes.add(new Square(4));
+
+	            for (Geometric shape : shapes) {
+	                shape.displayArea();
+	            }
+	        } catch (Exception e) {
+	            System.err.println("An error occurred: " + e.getMessage());
+	        } finally {
+	            System.out.println("Program execution completed.");
+	        }
+
+		
+
+	}
+
+}
